@@ -1,12 +1,13 @@
-const express = require('express');
-const { dbCONN } = require('./database/db')
-require('dotenv').config();
+const express = require("express");
+const { dbCONN } = require("./database/db");
+require("dotenv").config();
 
 const app = express();
 
-dbCONN()
+dbCONN();
+app.use(express.json());
 
-app.use('', require('./routes/inventario.js'))
+app.use("", require("./routes/inventario.js"));
 
 // app.get('/', (req, res) => {
 //     // res.send("Conexión establecida")
@@ -18,5 +19,5 @@ app.use('', require('./routes/inventario.js'))
 // })
 
 app.listen(process.env.PORT, () => {
-    console.log('listening on port ' + `${ process.env.PORT }` + " bish");
-})
+  console.log("listening on port " + `${process.env.PORT}` + " bish");
+});
